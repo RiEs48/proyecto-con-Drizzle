@@ -1,6 +1,7 @@
 "use server"
 
 import { RegistrarseSchema, RegistroEntradas } from "../schemas/AutentificacionSchema";
+import { autentificacionService } from "../services/AutentificacionServicio";
 
 
 export async function RegistrarseAction(input: RegistroEntradas) {
@@ -12,4 +13,8 @@ export async function RegistrarseAction(input: RegistroEntradas) {
         }
 
     }
+    // llamamos el metodo creado en el Servicio
+    await autentificacionService.registro(data.data)
+
+
 }
